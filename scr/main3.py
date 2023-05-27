@@ -4,18 +4,6 @@ import numpy as np
 import pandas as pd
 
 
-# Gráficos
-# ------------------------------------------------------------------------------
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-
-#  Gestión de warnings
-# ------------------------------------------------------------------------------
-import warnings
-warnings.filterwarnings("ignore")
-
-
 # Codificación variables categóricas
 # ------------------------------------------------------------------------------
 from sklearn.preprocessing import OneHotEncoder
@@ -37,6 +25,7 @@ pd.options.display.max_columns = None
 def prediccion(month, year, weekday, workingday, holiday, weathersit, temp, hum, windspeed):
     with open("../datos/estandarizacion.pkl", "rb") as estandarizacion:
         scaler = pickle.load(estandarizacion)
+
 
     with open("../datos/mejor_modelo.pkl", "rb") as modelo:
         bosque = pickle.load(modelo)
